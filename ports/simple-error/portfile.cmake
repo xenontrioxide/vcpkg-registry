@@ -11,8 +11,14 @@ vcpkg_configure_cmake(
     PREFER_NINJA
 )
 
-file(GLOB MODULE_INTERFACE_FILES "${SOURCE_PATH}*.ixx")
+file(GLOB MODULE_INTERFACE_FILES "${SOURCE_PATH}/*.ixx")
 file(COPY ${MODULE_INTERFACE_FILES} DESTINATION ${CURRENT_PACKAGES_DIR}/include/${PORT})
+
+if(EXISTS "${CURRENT_PACKAGES_DIR}/include/${PORT}/error.ixx")
+    message(STATUS "Module interface file installed successfully.")
+else()
+    message(FATAL_ERROR "Module interface file missing from the install directory.")
+endif()
 
 
 vcpkg_cmake_install()
