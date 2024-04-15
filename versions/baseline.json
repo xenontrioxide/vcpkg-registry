@@ -1,6 +1,6 @@
 {
 	"default": {
-		"simple_error": {
+		"simple-error": {
 			"baseline": "1.0.0",
 			"port-version": 0
 		}
