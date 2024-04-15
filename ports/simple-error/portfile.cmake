@@ -11,6 +11,10 @@ vcpkg_configure_cmake(
     PREFER_NINJA
 )
 
+file(GLOB MODULE_INTERFACE_FILES "${SOURCE_PATH}*.ixx")
+file(COPY ${MODULE_INTERFACE_FILES} DESTINATION ${CURRENT_PACKAGES_DIR}/include/${PORT})
+
+
 vcpkg_cmake_install()
 vcpkg_fixup_cmake_targets(CONFIG_PATH lib/cmake/${PORT})
 vcpkg_copy_pdbs()
