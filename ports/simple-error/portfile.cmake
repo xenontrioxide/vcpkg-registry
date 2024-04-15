@@ -8,7 +8,6 @@ vcpkg_from_github(
 
 vcpkg_configure_cmake(
     SOURCE_PATH ${SOURCE_PATH}
-    PREFER_NINJA
 )
 
 file(GLOB MODULE_INTERFACE_FILES "${SOURCE_PATH}/*.ixx")
@@ -19,10 +18,5 @@ if(EXISTS "${CURRENT_PACKAGES_DIR}/include/${PORT}/error.ixx")
 else()
     message(FATAL_ERROR "Module interface file missing from the install directory.")
 endif()
-
-
-vcpkg_cmake_install()
-vcpkg_fixup_cmake_targets(CONFIG_PATH lib/cmake/${PORT})
-vcpkg_copy_pdbs()
 
 message(STATUS "Installation of ${PORT} complete.")
