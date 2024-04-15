@@ -1,0 +1,5 @@
+{
+  "name": "simple_error",
+  "version-string": "1.0.0",
+  "description": "C++ Module for a struct that be can be used with std::unexpected"
+}
